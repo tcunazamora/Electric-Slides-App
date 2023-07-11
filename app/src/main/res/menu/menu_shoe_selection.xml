@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="@string/config_left_shoe"
+        android:id="@+id/config_left_shoe"/>
+    <item
+        android:title="@string/config_right_shoe"
+        android:id="@+id/config_right_shoe"/>
+</menu>

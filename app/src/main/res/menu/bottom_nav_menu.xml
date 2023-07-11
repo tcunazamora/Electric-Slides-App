@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/charging"
+        android:icon="@drawable/ic_baseline_battery_charging_full_24"
+        android:title="@string/charging"/>
+    <item android:id="@+id/distance"
+        android:icon="@drawable/ic_baseline_calendar_today_24"
+        android:title="@string/daily"/>
+    <item android:id="@+id/history"
+        android:icon="@drawable/ic_baseline_access_time_24"
+        android:title="@string/history"/>
+</menu>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChargingFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/ChargingTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/millard_bold"
+            android:text="@string/charge_status"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/LeftShoeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/millard_medium"
+            android:text="@string/left_shoe"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/LeftShoeProgressBar"
+            app:layout_constraintStart_toStartOf="@+id/LeftShoeProgressBar"
+            app:layout_constraintTop_toBottomOf="@+id/ChargingTextView" />
+
+        <TextView
+            android:id="@+id/RightShoeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/millard_medium"
+            android:text="@string/right_shoe"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/RightShoeProgressBar"
+            app:layout_constraintStart_toEndOf="@+id/LeftShoeProgressBar"
+            app:layout_constraintTop_toBottomOf="@+id/ChargingTextView" />
+
+        <ProgressBar
+            android:id="@+id/LeftShoeProgressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:indeterminateOnly="false"
+            android:progressDrawable="@drawable/circle"
+            app:layout_constraintEnd_toStartOf="@+id/RightShoeProgressBar"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LeftShoeTextView" />
+
+        <ProgressBar
+            android:id="@+id/RightShoeProgressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:indeterminateOnly="false"
+            android:progressDrawable="@drawable/circle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/LeftShoeProgressBar"
+            app:layout_constraintTop_toBottomOf="@+id/RightShoeTextView" />
+
+        <TextView
+            android:id="@+id/LeftProgressTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_bold"
+            android:text="@string/_0"
+            android:textColor="@color/black"
+            android:textSize="48sp"
+            app:layout_constraintBottom_toBottomOf="@+id/LeftShoeProgressBar"
+            app:layout_constraintEnd_toEndOf="@+id/LeftShoeProgressBar"
+            app:layout_constraintStart_toStartOf="@+id/LeftShoeProgressBar"
+            app:layout_constraintTop_toTopOf="@+id/LeftShoeProgressBar" />
+
+        <TextView
+            android:id="@+id/RightProgressTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_bold"
+            android:text="@string/_0"
+            android:textColor="@color/black"
+            android:textSize="48sp"
+            app:layout_constraintBottom_toBottomOf="@+id/RightShoeProgressBar"
+            app:layout_constraintEnd_toEndOf="@+id/RightShoeProgressBar"
+            app:layout_constraintStart_toEndOf="@+id/LeftShoeProgressBar"
+            app:layout_constraintTop_toTopOf="@+id/RightShoeProgressBar" />
+
+        <TextView
+            android:id="@+id/PhoneEstimatesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="64dp"
+            android:fontFamily="@font/millard_bold"
+            android:text="@string/phone_charge_estimates"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LeftShoeAmpsTextView" />
+
+        <View
+            android:id="@+id/historical_milestones_rectangle"
+            android:layout_width="400dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rectangle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/PhoneEstimatesTextView" />
+
+        <TextView
+            android:id="@+id/LeftShoeAmpsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/millard_medium"
+            android:text="@string/charge"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toStartOf="@+id/LeftShoeAmpsValueTextView"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@+id/LeftShoeProgressBar"
+            app:layout_constraintTop_toBottomOf="@+id/LeftShoeProgressBar" />
+
+        <TextView
+            android:id="@+id/RightShoeAmpsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/millard_medium"
+            android:text="@string/charge"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toStartOf="@+id/RightShoeAmpsValueTextView"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/LeftShoeProgressBar"
+            app:layout_constraintTop_toBottomOf="@+id/RightShoeProgressBar" />
+
+        <TextView
+            android:id="@+id/TotalPhoneChargeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/millard_medium"
+            android:text="@string/total_phone_charge"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/historical_milestones_rectangle"
+            app:layout_constraintTop_toTopOf="@+id/historical_milestones_rectangle" />
+
+        <TextView
+            android:id="@+id/ChargeFromLeftShoeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/millard_medium"
+            android:text="@string/charge_from_left_shoe"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/historical_milestones_rectangle"
+            app:layout_constraintTop_toBottomOf="@+id/TotalPhoneChargeTextView" />
+
+        <TextView
+            android:id="@+id/ChargeFromRightShoeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/millard_medium"
+            android:text="@string/charge_from_right_shoe"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/historical_milestones_rectangle"
+            app:layout_constraintTop_toBottomOf="@+id/ChargeFromLeftShoeTextView" />
+
+        <TextView
+            android:id="@+id/TotalPhoneChargeValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/millard_medium"
+            android:text="@string/_0"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/TotalPhoneChargeTextView"
+            app:layout_constraintTop_toTopOf="@+id/historical_milestones_rectangle" />
+
+        <TextView
+            android:id="@+id/ChargeFromLeftShoeValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/millard_medium"
+            android:text="@string/_0"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/ChargeFromLeftShoeTextView"
+            app:layout_constraintTop_toBottomOf="@+id/TotalPhoneChargeValueTextView" />
+
+        <TextView
+            android:id="@+id/ChargeFromRightShoeValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/millard_medium"
+            android:text="@string/_0"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/ChargeFromRightShoeTextView"
+            app:layout_constraintTop_toBottomOf="@+id/ChargeFromLeftShoeValueTextView" />
+
+        <TextView
+            android:id="@+id/LeftShoeAmpsValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/millard_medium"
+            android:text="@string/_0_ma"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/LeftShoeProgressBar"
+            app:layout_constraintStart_toEndOf="@+id/LeftShoeAmpsTextView"
+            app:layout_constraintTop_toBottomOf="@+id/LeftShoeProgressBar" />
+
+        <TextView
+            android:id="@+id/RightShoeAmpsValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/millard_medium"
+            android:text="@string/_0_ma"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/RightShoeProgressBar"
+            app:layout_constraintStart_toEndOf="@+id/RightShoeAmpsTextView"
+            app:layout_constraintTop_toBottomOf="@+id/RightShoeProgressBar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

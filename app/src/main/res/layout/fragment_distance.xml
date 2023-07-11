@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".DistanceFragment">
+
+    <TextView
+        android:id="@+id/bar_chart_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/millard_bold"
+        android:text="@string/daily_power_generated"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/daily_wattage_bar_chart"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bar_chart_textview" />
+
+    <TextView
+        android:id="@+id/daily_milestones_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/millard_bold"
+        android:text="@string/daily_milestones"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/daily_wattage_bar_chart" />
+
+    <View
+        android:id="@+id/historical_milestones_rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="1030dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/milestone_rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/daily_milestones_textview" />
+
+    <TextView
+        android:id="@+id/power_generated_milestone_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/millard_bold"
+        android:text="@string/power_generated_today"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintTop_toTopOf="@+id/historical_milestones_rectangle" />
+
+    <TextView
+        android:id="@+id/power_generated_daily"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/millard_medium"
+        android:text="@string/_0_wh"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintTop_toBottomOf="@+id/power_generated_milestone_textview" />
+
+    <View
+        android:id="@+id/device1_attach"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/milestones_progress_bar_attach_empty"
+        app:layout_constraintBottom_toBottomOf="@+id/device1_text"
+        app:layout_constraintEnd_toStartOf="@+id/device1_text"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_progress_bar"
+        app:layout_constraintTop_toBottomOf="@+id/device1" />
+
+    <View
+        android:id="@+id/device2_attach"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/milestones_progress_bar_attach_empty"
+        app:layout_constraintBottom_toBottomOf="@+id/device2_text"
+        app:layout_constraintEnd_toStartOf="@+id/device2_text"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_progress_bar"
+        app:layout_constraintTop_toBottomOf="@+id/device2" />
+
+    <View
+        android:id="@+id/device3_attach"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/milestones_progress_bar_attach_empty"
+        app:layout_constraintBottom_toBottomOf="@+id/device3_text"
+        app:layout_constraintEnd_toStartOf="@+id/device3_text"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_progress_bar"
+        app:layout_constraintTop_toBottomOf="@+id/device3" />
+
+    <View
+        android:id="@+id/device4_attach"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/milestones_progress_bar_attach_empty"
+        app:layout_constraintBottom_toBottomOf="@+id/device4_text"
+        app:layout_constraintEnd_toStartOf="@+id/device4_text"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_progress_bar"
+        app:layout_constraintTop_toBottomOf="@+id/device4" />
+
+    <View
+        android:id="@+id/device5_attach"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/milestones_progress_bar_attach_empty"
+        app:layout_constraintBottom_toBottomOf="@+id/device5_text"
+        app:layout_constraintEnd_toStartOf="@+id/device5_text"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_progress_bar"
+        app:layout_constraintTop_toBottomOf="@+id/device5" />
+
+    <View
+        android:id="@+id/device6_attach"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/milestones_progress_bar_attach_empty"
+        app:layout_constraintBottom_toBottomOf="@+id/device6_text"
+        app:layout_constraintEnd_toStartOf="@+id/device6_text"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_progress_bar"
+        app:layout_constraintTop_toBottomOf="@+id/device6" />
+
+    <View
+        android:id="@+id/device7_attach"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/milestones_progress_bar_attach_empty"
+        app:layout_constraintBottom_toBottomOf="@+id/device7_text"
+        app:layout_constraintEnd_toStartOf="@+id/device7_text"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_progress_bar"
+        app:layout_constraintTop_toBottomOf="@+id/device7" />
+
+    <View
+        android:id="@+id/historical_milestones_progress_bar"
+        android:layout_width="20dp"
+        android:layout_height="880dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/milestones_progress_bar_empty"
+        app:layout_constraintEnd_toEndOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintTop_toBottomOf="@+id/power_generated_daily" />
+
+    <View
+        android:id="@+id/starting_progress_bar"
+        android:layout_width="20dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/milestones_progress_bar"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintTop_toBottomOf="@+id/power_generated_daily" />
+
+    <View
+        android:id="@+id/device1_progress_bar"
+        android:layout_width="20dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/milestones_progress_bar"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintTop_toBottomOf="@+id/power_generated_daily" />
+
+    <View
+        android:id="@+id/device2_progress_bar"
+        android:layout_width="20dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/milestones_progress_bar"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintTop_toBottomOf="@+id/power_generated_daily" />
+
+    <View
+        android:id="@+id/device3_progress_bar"
+        android:layout_width="20dp"
+        android:layout_height="375dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/milestones_progress_bar"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintTop_toBottomOf="@+id/power_generated_daily" />
+
+    <View
+        android:id="@+id/device4_progress_bar"
+        android:layout_width="20dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/milestones_progress_bar"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintTop_toBottomOf="@+id/power_generated_daily" />
+
+    <View
+        android:id="@+id/device5_progress_bar"
+        android:layout_width="20dp"
+        android:layout_height="620dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/milestones_progress_bar"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintTop_toBottomOf="@+id/power_generated_daily" />
+
+    <View
+        android:id="@+id/device6_progress_bar"
+        android:layout_width="20dp"
+        android:layout_height="755dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/milestones_progress_bar"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintTop_toBottomOf="@+id/power_generated_daily" />
+
+    <View
+        android:id="@+id/device7_progress_bar"
+        android:layout_width="20dp"
+        android:layout_height="880dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/milestones_progress_bar"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintTop_toBottomOf="@+id/power_generated_daily" />
+
+    <TextView
+        android:id="@+id/device1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/millard_bold"
+        android:text="10 Watt LED Light Bulb"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/historical_milestones_rectangle"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toEndOf="@+id/historical_milestones_progress_bar"
+        app:layout_constraintTop_toTopOf="@+id/historical_milestones_progress_bar" />
+
+    <TextView
+        android:id="@+id/device1_text"
+        android:layout_width="240sp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/millard_medium"
+        android:text="You have generated enough energy to power a LED light bulb for 1 hour (10wH)"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/device1"
+        app:layout_constraintStart_toStartOf="@+id/device1"
+        app:layout_constraintTop_toBottomOf="@+id/device1" />
+
+    <TextView
+        android:id="@+id/device2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/millard_bold"
+        android:text="iPhone 13"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/device1"
+        app:layout_constraintStart_toStartOf="@+id/device1"
+        app:layout_constraintTop_toBottomOf="@+id/device1_text" />
+
+    <TextView
+        android:id="@+id/device2_text"
+        android:layout_width="240sp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/millard_medium"
+        android:text="You have generated enough energy to power an iPhone 13 for 1 hour (20wH)"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/device1_text"
+        app:layout_constraintStart_toStartOf="@+id/device1_text"
+        app:layout_constraintTop_toBottomOf="@+id/device2" />
+
+    <TextView
+        android:id="@+id/device3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/millard_bold"
+        android:text="Incandescent Light Bulb"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/device2"
+        app:layout_constraintStart_toStartOf="@+id/device2"
+        app:layout_constraintTop_toBottomOf="@+id/device2_text" />
+
+    <TextView
+        android:id="@+id/device3_text"
+        android:layout_width="240sp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/millard_medium"
+        android:text="You have generated enough energy to power an incandescent light bulb for 1 hour (60wH)"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/device2_text"
+        app:layout_constraintStart_toStartOf="@+id/device2_text"
+        app:layout_constraintTop_toBottomOf="@+id/device3" />
+
+    <TextView
+        android:id="@+id/device4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/millard_bold"
+        android:text="Average TV"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/device3"
+        app:layout_constraintStart_toStartOf="@+id/device3"
+        app:layout_constraintTop_toBottomOf="@+id/device3_text" />
+
+    <TextView
+        android:id="@+id/device4_text"
+        android:layout_width="240sp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/millard_medium"
+        android:text="You have generated enough energy to power a TV for 1 hour (70wH)"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/device3_text"
+        app:layout_constraintStart_toStartOf="@+id/device3_text"
+        app:layout_constraintTop_toBottomOf="@+id/device4" />
+
+    <TextView
+        android:id="@+id/device5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/millard_bold"
+        android:text="Average Laptop"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/device4"
+        app:layout_constraintStart_toStartOf="@+id/device4"
+        app:layout_constraintTop_toBottomOf="@+id/device4_text" />
+
+    <TextView
+        android:id="@+id/device5_text"
+        android:layout_width="240sp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/millard_medium"
+        android:text="You have generated enough energy to power a laptop for 1 hour (100wH)"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/device4_text"
+        app:layout_constraintStart_toStartOf="@+id/device4_text"
+        app:layout_constraintTop_toBottomOf="@+id/device5" />
+
+    <TextView
+        android:id="@+id/device6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/millard_bold"
+        android:text="Modern Game Console"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/device5"
+        app:layout_constraintStart_toStartOf="@+id/device5"
+        app:layout_constraintTop_toBottomOf="@+id/device5_text" />
+
+    <TextView
+        android:id="@+id/device6_text"
+        android:layout_width="240sp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/millard_medium"
+        android:text="You have generated enough energy to power a modern game console for 1 hour (200wH)"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/device5_text"
+        app:layout_constraintStart_toStartOf="@+id/device5_text"
+        app:layout_constraintTop_toBottomOf="@+id/device6" />
+
+    <TextView
+        android:id="@+id/device7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/millard_bold"
+        android:text="Average Refrigerator"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/device6"
+        app:layout_constraintStart_toStartOf="@+id/device6"
+        app:layout_constraintTop_toBottomOf="@+id/device6_text" />
+
+    <TextView
+        android:id="@+id/device7_text"
+        android:layout_width="240sp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/millard_medium"
+        android:text="You have generated enough energy to power a refrigerator for 1 hour (600wH)"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/device6_text"
+        app:layout_constraintStart_toStartOf="@+id/device6_text"
+        app:layout_constraintTop_toBottomOf="@+id/device7" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

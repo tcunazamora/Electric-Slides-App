@@ -1,0 +1,6 @@
+App Glitches:
+
+- Clicking Charging Tab resets the fragment/screen (but it resets quickly)
+	- Navagating away from the tab also resets fragment/screen
+
+- Going into a configure menu (going into a scan menu), exiting, then going back into one (a scan menu), glitches out the app. Must reset app.
